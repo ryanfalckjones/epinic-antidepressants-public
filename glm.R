@@ -4,8 +4,7 @@ library(future)
 library(tidymodels)
 
 # Set working directory
-setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
-source("source/functions.R")
+source("functions.R")
 
 # Specific data-prep
 glm_data <- readr::read_rds("data/df_epinic.rds") %>%

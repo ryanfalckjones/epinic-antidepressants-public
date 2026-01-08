@@ -1,8 +1,8 @@
-setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
+
 source("source/init.R")
 
 # Establish SQLite Connection
-opic <- conDb("data/opic.sqlite")
+opic <- conDb("opic_db")
 
 # Read SQL-query
 opic_query <- readr::read_file("source/opic_cte.sql")
@@ -61,7 +61,7 @@ rm(LISA)
 
 opic.comorbs <- opic.sir %>% 
   select(LopNr, sir_adm_date) %>%
-  rcmswe::rcmswe('data/opic.sqlite', LMED = T) %>%
+  rcmswe::rcmswe('opic_db', LMED = T) %>%
   mutate(sir_adm_date = ymd(index_date))
 
 # Get information from LMED regarding antidepressants

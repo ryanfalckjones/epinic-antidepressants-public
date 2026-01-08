@@ -1,14 +1,12 @@
 
-setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
-
-db <- conDb("~/Local Documents/data/db_2025_local_copy.sqlite") # Connect database
+db <- conDb("path_to_database") # Connect database
 
 dbWriteTable(db, 'pts', cohort['LopNr'], temporary = TRUE) # Write a temporary table to the DB with the cohort id's
 
 # ATC code for antidepressants = N06A
 # N06AA = non-selective MAOi such as clomipramine and amitriptylene, 
 # likely prescribed for other indication than depression but are here 
-# included in order to use the same selection as EvO.
+# included in order to use the same selection as OPIC
 
 antidepressants_dispensed <- 
   "SELECT LopNr, ATC, EDATUM, FDATUM, subnamn

@@ -1,4 +1,4 @@
-db <- conDb("~/Local Documents/data/db_2025_local_copy.sqlite") # Connect database
+db <- conDb("database") # Connect database
 
 dbWriteTable(db, 'pts', cohort['LopNr'], temporary = TRUE) # Write a temporary table to the DB with the cohort id's
 

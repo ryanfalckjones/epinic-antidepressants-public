@@ -4,8 +4,6 @@ library(ranger)
 library(future)
 library(tidyverse)
 
-# Set the WD to the project dir
-setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
 source("source/functions.R")
 
 # Read the imputed data and create 5 imputed datasets
@@ -16,7 +14,7 @@ for (i in 1:5) {
   
   tryCatch(
     {
-      setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
+      setwd("epinic_asah_antidepressants")
       
       # Read the data
       df <- imp_epinic[[i]] %>% 
@@ -220,7 +218,7 @@ for (i in 1:5) {
 
 # Pool metrics across imputations
 
-setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
+setwd("epinic_asah_antidepressants")
 
 # Create a list to store metrics across imputations
 metrics_list <- list()

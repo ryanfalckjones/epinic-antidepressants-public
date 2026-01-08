@@ -1,4 +1,3 @@
-setwd("~/Local Documents/GitHub/epinic_asah_antidepressants/")
 library(tidyverse)
 library(mice)
 library(MatchIt)

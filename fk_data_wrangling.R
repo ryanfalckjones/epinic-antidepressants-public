@@ -1,8 +1,8 @@
 library(tidyverse)
 
-if (!exists("cohort")) source("~/Local Documents/GitHub/epinic_asah_antidepressants/source/init.R")
-if (!exists("df$epinic")) df_epinic_incl_id <- readr::read_rds("~/Local Documents/GitHub/epinic_asah_antidepressants/data/df_epinic_incl_id.rds")
-absence <- readr::read_rds("~/Local Documents/GitHub/epinic_asah_antidepressants/data/absence.rds") %>%
+if (!exists("cohort")) source("init.R")
+if (!exists("df$epinic")) df_epinic_incl_id <- readr::read_rds("df_epinic_incl_id.rds")
+absence <- readr::read_rds("data/absence.rds") %>%
   left_join(select(filter(cohort, age < 61), c(LopNr, sir_adm_date, DODSDAT_ROUND_DOWN)), relationship = "many-to-many") %>%
   filter(sir_adm_date < ymd("2023-01-01")) %>%
   filter(is.na(DODSDAT_ROUND_DOWN) | DODSDAT_ROUND_DOWN > (sir_adm_date + years(2))) %>%
